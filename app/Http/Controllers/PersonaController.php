@@ -8,7 +8,7 @@ class PersonaController extends Controller {
         //
     }
     public function Listar() {
-        //
+        return Persona::all();
     }
     public function ListarUna() {
         //
