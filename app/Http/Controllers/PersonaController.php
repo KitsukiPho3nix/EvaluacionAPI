@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\Persona;
 use Illuminate\Http\Request;
+use App\Models\Persona;
 
 class PersonaController extends Controller {
     public function Crear(Request $request) {
@@ -22,7 +22,10 @@ class PersonaController extends Controller {
     public function Modificar() {
         //
     }
-    public function Eliminar() {
-        //
+    public function Eliminar($id) {
+        $persona = Persona::findOrFail($id);
+        $persona -> delete();
+       
+        return [ 'mensajeDeEliminacionExitosa' => 'Persona eliminada.' ];
     }
 }
