@@ -5,13 +5,13 @@ use App\Models\Persona;
 
 class PersonaController extends Controller {
     public function Crear(Request $request) {
-        $persona = new Persona();
-        $persona -> nombre = $request->post('nombre');
-        $persona -> apellido = $request->post('apellido');
-        $persona -> telefono = $request->post('telefono');
-        $persona -> save();
+        $nuevaPersona = new Persona();
+        $nuevaPersona -> nombre = $request->post('nombre');
+        $nuevaPersona -> apellido = $request->post('apellido');
+        $nuevaPersona -> telefono = $request->post('telefono');
+        $nuevaPersona -> save();
 
-        return $persona;
+        return $nuevaPersona;
     }
     public function Listar() {
         return Persona::all();
@@ -20,17 +20,17 @@ class PersonaController extends Controller {
         return Persona::findOrFail($id);
     }
     public function Modificar(Request $request, $id) {
-        $persona = Persona::findOrFail($id);
-        $persona -> nombre = $request->post('nombre');
-        $persona -> apellido = $request->post('apellido');
-        $persona -> telefono = $request->post('telefono');
-        $persona -> save();
+        $personaModificada = Persona::findOrFail($id);
+        $personaModificada -> nombre = $request->post('nombre');
+        $personaModificada -> apellido = $request->post('apellido');
+        $personaModificada -> telefono = $request->post('telefono');
+        $personaModificada -> save();
 
-        return $persona;
+        return $personaModificada;
     }
     public function Eliminar($id) {
-        $persona = Persona::findOrFail($id);
-        $persona -> delete();
+        $personaEliminada = Persona::findOrFail($id);
+        $personaEliminada -> delete();
        
         return [ 'mensajeDeEliminacionExitosa' => 'Persona eliminada.' ];
     }
