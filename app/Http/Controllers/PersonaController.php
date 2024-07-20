@@ -10,8 +10,8 @@ class PersonaController extends Controller {
     public function Listar() {
         return Persona::all();
     }
-    public function ListarUna() {
-        //
+    public function ListarUna($id) {
+        return Persona::findOrFail($id);
     }
     public function Modificar() {
         //
